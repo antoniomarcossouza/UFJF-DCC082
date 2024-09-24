@@ -5,3 +5,7 @@ ffmpeg -f v4l2 -video_size 1920x1080 -framerate 30 -i /dev/video0 \
     -af aresample=async=1 \
     -t 00:00:10 00_H265-recorded.mp4 -y
 
+ffmpeg -i 00_H265-recorded.mp4 \
+    -c:v libx264 -preset medium -crf 22 \
+    -c:a aac -b:a 128k \
+    01_H264-transcoded.mp4 -y
