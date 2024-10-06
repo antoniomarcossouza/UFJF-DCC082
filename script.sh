@@ -8,7 +8,7 @@ mkdir -p ./02_STAGING
 ffmpeg -i ./00_RECORDING/H265-recorded.mp4 -c:v libx265 -crf 23 -vf "scale=1920:1080" -an ./02_STAGING/video1080p.mp4 -y
 ffmpeg -i ./00_RECORDING/H265-recorded.mp4 -c:v libx265 -crf 23 -vf "scale=1280:720,interlace" -an ./02_STAGING/video720i.mp4 -y
 ffmpeg -i ./00_RECORDING/H265-recorded.mp4 -c:v libx265 -crf 23 -vf "scale=854:480" -an ./02_STAGING/video480p.mp4 -y
-ffmpeg -i ./00_RECORDING/H265-recorded.mp4 -c:a aac -b:a 64k -ac 1 ./02_STAGING/audio_mono.aac -y
+ffmpeg -i ./00_RECORDING/H265-recorded.mp4 -c:a aac -b:a 128k -ac 1 ./02_STAGING/audio_mono.aac -y
 ffmpeg -i ./00_RECORDING/H265-recorded.mp4 -c:a aac -b:a 128k -ac 2 ./02_STAGING/audio_stereo.aac -y
 
 mkdir -p ./03_DASH
